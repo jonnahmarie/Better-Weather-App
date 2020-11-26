@@ -32,21 +32,20 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12 btn-group d-flex flex-column" id="cities">
-                        <button type="button" class="btn btn-outline-info">Chicago</button>
-                        <button type="button" class="btn btn-outline-info">Chicago</button>
-                        <button type="button" class="btn btn-outline-info">Chicago</button>
-                        <button type="button" class="btn btn-outline-info">Chicago</button>
+                        <button type="button" class="btn btn-outline-info mb-1 history" value="Los Angeles">Los Angeles</button>
                     </div>
                 </div>
             </div>
             <div class="col-md-8">
                 <div class="row card m-2">
                     <div class="col" id="today">
-                        <h2 class="mb-4">Atlanta</h2>
-                        <p>Temperature</p>
-                        <p>Humidity</p>
-                        <p>Wind Speed</p>
-                        <p>UV Index</p>
+                        <div class="row pl-3 pt-3">
+                            <h2 class="mb-4" id="city-name"></h2><img src="" id="weather-icon" alt="">
+                        </div>
+                        <p>Temperature: <span class="temp"></span>&#176 F</p>
+                        <p>Humidity: <span class="humidity"></span>%</p>
+                        <p>Wind Speed: <span class="wind"></span> MPH</p>
+                        <p>UV Index: <span class="uv-index"></span></p>
                     </div>
                 </div>
                 <div class="row m-2">
@@ -57,35 +56,15 @@
                             </div>
                         </div>
                         <div class="row d-flex justify-content-between" id="future-forecast">
-                            <div class="col-md-2 card future-day">
-                                <h3>Date</h3>
-                                <p>icon</p>
-                                <p>Temp</p>
-                                <p>Humidity</p>
+                            <div class="col-md-2 card future-day" id="day0">
                             </div>
-                            <div class="col-md-2 card future-day">
-                                <h3>Date</h3>
-                                <p>icon</p>
-                                <p>Temp</p>
-                                <p>Humidity</p>
+                            <div class="col-md-2 card future-day" id="day1">
                             </div>
-                            <div class="col-md-2 card future-day">
-                                <h3>Date</h3>
-                                <p>icon</p>
-                                <p>Temp</p>
-                                <p>Humidity</p>
+                            <div class="col-md-2 card future-day" id="day2">
                             </div>
-                            <div class="col-md-2 card future-day">
-                                <h3>Date</h3>
-                                <p>icon</p>
-                                <p>Temp</p>
-                                <p>Humidity</p>
+                            <div class="col-md-2 card future-day" id="day3">
                             </div>
-                            <div class="col-md-2 card future-day">
-                                <h3>Date</h3>
-                                <p>icon</p>
-                                <p>Temp</p>
-                                <p>Humidity</p>
+                            <div class="col-md-2 card future-day" id="day4">
                             </div>
                         </div>
                     </div>
