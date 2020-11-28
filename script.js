@@ -82,11 +82,13 @@ $(document).ready(function() {
             }
         });
     });
+    renderHistory();
 });
 
 $("#cityBtn").on("click", function(){
     // console.log("clicked");
     var cityInput = $("#citySearch").val();
+    let cityHistoryArray = JSON.parse(localStorage.getItem("city")) || [];
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityInput + "&units=imperial" + "&appid=" + apiKey;
 
     $.ajax({
@@ -121,13 +123,7 @@ $("#cityBtn").on("click", function(){
             });
 
             get5forecast();
-
-            //gets local storage
-            var userCitySearch = JSON.parse(localstorage.getItem("search-city")) ;
-            userCitySearch.push(cityInput);
-            //sets local storage
-            localStorage.setItem("city", JSON.stringify(userCitySearch));
-        }
+        };
 
         //5 day weather forecast API
         function get5forecast() {
@@ -170,12 +166,38 @@ $("#cityBtn").on("click", function(){
                 
             }
         });
-        }
+        };
 
-        //last searched cities
-        var searchHistBtn = $("<button>");
+        cityHistoryArray.push(cityInput);
+        setCityHistory();
+        renderHistory();
 
-
-    })
+    });
 })
+
+//pushes user's city input into an array for setting local storage
+var cityArray = [];
+function setCityHistory() {
+    let cityInput = $("#citySearch").val();
+    cityArray.push(cityInput);
+    localStorage.setItem("city", JSON.stringify(cityArray));
+    // console.log(cityArray);
+};
+
+function renderHistory() {
+    let cityHistoryArray = JSON.parse(localStorage.getItem("city"));
+    $("#cities").empty();
+    for (var i = 0; i < cityHistoryArray.length; i++) {
+        let cityBtn = $("<button>");
+        cityBtn.attr({
+            type: "button",
+            class: "btn btn-outline-info mb-1 history",
+            value: cityHistoryArray[i]
+        });
+        cityBtn.text(cityHistoryArray[i]);
+        $("#cities").prepend(cityBtn);
+
+        
+    };
+}
 
