@@ -73,6 +73,7 @@ $(document).ready(function() {
 
                 forecastDate.text(forecastMonth + "/" + forecastDay + "/" + forecastYear);
                 forecastIcon.attr({
+                    class: "forecast-img",
                     src: "http://openweathermap.org/img/w/" + response.list[fIndex].weather[0].icon + ".png",
                     alt: response.list[fIndex].weather[0].description
                 });
@@ -157,6 +158,7 @@ function getWeather() {
 
             forecastDate.text(forecastMonth + "/" + forecastDay + "/" + forecastYear);
             forecastIcon.attr({
+                class: "forecast-img",
                 src: "http://openweathermap.org/img/w/" + response.list[fIndex].weather[0].icon + ".png",
                 alt: response.list[fIndex].weather[0].description
             });
@@ -188,7 +190,7 @@ function renderHistory() {
         let cityBtn = $("<button>");
         cityBtn.attr({
             type: "button",
-            class: "btn btn-outline-info mb-1 history",
+            class: "btn mb-1 history",
             value: cityHistoryArray[i]
         });
         cityBtn.text(cityHistoryArray[i]);

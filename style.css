@@ -1,0 +1,68 @@
+body {
+    background-color: #446e71;
+}
+
+h4, h3 {
+    font-family: 'Bebas Neue', cursive;
+}
+
+header {
+    background-color: #003a42;
+}
+
+.container-fluid {
+    height: 100%;
+    margin-top: -8px;
+}
+
+#left-panel {
+    background-color: #adcaca;
+    height: 100vh;
+}
+
+#right-panel {
+    background-color: #f08802;
+}
+
+.history {
+    background-color: #428585 !important;
+    color: white !important;
+    font-weight: bold !important;
+}
+
+.history:hover {
+    background-color: #004c53 !important;
+    color: white !important;
+    font-weight: bold !important;
+}
+
+.btn-primary {
+    background-color: #f08802 !important;
+    border-color: #b9520a !important;
+}
+
+#city-name {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 30pt;
+}
+
+.font {
+    font-family: 'Bebas Neue', cursive;
+    color: white;
+}
+
+.today-head {
+    display: inline-block;
+}
+
+#weather-icon, .forecast-img {
+    height: 75px;
+    width: 75px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.card {
+    background-color: white !important;
+    border: none !important;
+}
