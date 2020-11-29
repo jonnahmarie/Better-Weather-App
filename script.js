@@ -42,6 +42,14 @@ $(document).ready(function() {
         }).then(function(response) {
             // console.log(response)
             $(".uv-index").text(response.value)
+
+            if (response.value < 2) {
+                $(".uv-index").css("background-color", "mediumseagreen")
+            } else if (response.value > 3 && response.value < 5) {
+                $(".uv-index").css("background-color", "orange")
+            } else {
+                $(".uv-index").css("background-color", "tomato")
+            }
         });
 
         //5 day weather forecast API
@@ -123,7 +131,15 @@ function getWeather() {
         method: "GET"
     }).then(function(response) {
         // console.log(response)
-        $(".uv-index").text(response.value)
+        $(".uv-index").text(response.value);
+        
+        if (response.value < 2) {
+            $(".uv-index").css("background-color", "mediumseagreen")
+        } else if (response.value > 3 && response.value < 5) {
+            $(".uv-index").css("background-color", "orange")
+        } else {
+            $(".uv-index").css("background-color", "tomato")
+        }
     });
 
     get5forecast();
