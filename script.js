@@ -34,23 +34,30 @@ $(document).ready(function() {
         $(".humidity").text(response.main.humidity);
         $(".wind").text(response.wind.speed);
         //uv index api query
-        const uvQuery = "http://api.openweathermap.org/data/2.5/uvi?lat=" + response.coord.lat + "&lon=" + response.coord.lon + "&appid=" + apiKey;
+        const lat = response.coord.lat;
+        const lon = response.coord.lon;
 
-        $.ajax( {
-            url: uvQuery,
-            method: "GET"
-        }).then(function(response) {
-            // console.log(response)
-            $(".uv-index").text(response.value)
+        function getUVIndex(lat, lon) {
+            const uvQuery = "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey;
 
-            if (response.value < 2) {
-                $(".uv-index").css("background-color", "mediumseagreen")
-            } else if (response.value > 3 && response.value < 5) {
-                $(".uv-index").css("background-color", "orange")
-            } else {
-                $(".uv-index").css("background-color", "tomato")
-            }
-        });
+            $.ajax( {
+                url: uvQuery,
+                method: "GET"
+            }).then(function(response) {
+                // console.log(response)
+                $(".uv-index").text(response.value)
+
+                if (response.value < 2) {
+                    $(".uv-index").css("background-color", "mediumseagreen")
+                } else if (response.value > 3 && response.value < 5) {
+                    $(".uv-index").css("background-color", "orange")
+                } else {
+                    $(".uv-index").css("background-color", "tomato")
+                }
+            });
+        };
+
+        getUVIndex();
 
         //5 day weather forecast API
         const fiveQuery = "https://api.openweathermap.org/data/2.5/forecast?q=" + defaultCity + "&units=imperial" + "&appid=" + apiKey;
